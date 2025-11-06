@@ -13,7 +13,7 @@ export const addTodo = async (req, res) => {
 export const getAllTodo = async (req, res) => {
   try {
     const todos = await req.db.collection("todos").find().toArray();
-    res.status(200).json(todos);
+    res.sender("Index");
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch todos" });
   }
