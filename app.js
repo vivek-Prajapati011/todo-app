@@ -12,6 +12,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.set('views', './views');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
 app.use("/todos", todoRoutes);
 
 app.listen(4000, () => {
