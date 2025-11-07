@@ -2,8 +2,8 @@ import { ObjectId } from "mongodb";
 export const addTodo = async (req, res) => {
   const todo = req.body;
   try {
-    const result = await req.db.collection("todos").insertOne(todo);
-    res.status(201).json(result);
+    await req.db.collection("todos").insertOne({...todo, completed : todo.completed || false});
+    res.redirect("/todos");
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to create todo" });
@@ -13,7 +13,7 @@ export const addTodo = async (req, res) => {
 export const getAllTodo = async (req, res) => {
   try {
     const todos = await req.db.collection("todos").find().toArray();
-    res.sender("Index");
+    res.render("Index.jsx", {todos})
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch todos" });
   }
