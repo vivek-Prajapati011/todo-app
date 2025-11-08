@@ -1,6 +1,6 @@
 import express from "express";
 import { ObjectId } from "mongodb";
-import { addTodo, dltTodoById, getAllTodo, getAllTodos, getTodoById, updateTodo } from "../controllers/todoController.js";
+import { addTodo, getAllTodos, getTodoById, updateTodo , deleteTodo} from "../controllers/todoController.js";
 
 const router = express.Router();
 
