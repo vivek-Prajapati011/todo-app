@@ -5,7 +5,6 @@ import { createEngine } from "express-react-views";
 
 const app = express();
 
-const db = await connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
