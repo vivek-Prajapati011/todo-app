@@ -1,6 +1,6 @@
 import express from "express";
 import { ObjectId } from "mongodb";
-import { addTodo, dltTodoById, getAllTodo, getTodoById, updateTodo } from "../controllers/todoController.js";
+import { addTodo, dltTodoById, getAllTodo, getAllTodos, getTodoById, updateTodo } from "../controllers/todoController.js";
 
 const router = express.Router();
 
@@ -8,15 +8,15 @@ const router = express.Router();
 router.post("/", addTodo);
 
 // ✅ Get all to-do items
-router.get("/", getAllTodo);
+router.get("/", getAllTodos);
 
 // ✅ Get a single to-do item (Express 5 syntax)
-router.get("/{id}",getTodoById );
+router.get("/{id}",getTodoById  );
 
 // ✅ Update a to-do item
 router.put("/{id}",updateTodo);
 
 // ✅ Delete a to-do item
-router.delete("/{id}",dltTodoById );
+router.delete("/{id}",deleteTodo );
 
 export default router;
